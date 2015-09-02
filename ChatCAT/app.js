@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Create Routes
 app.route('/').get(function(req, res, next){
-	res.render('index', {});	
+	res.render('index', {title : 'Welcome to ChatCAT'});	
 });
 
 app.listen(port, function(){
