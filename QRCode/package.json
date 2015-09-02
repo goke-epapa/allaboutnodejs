@@ -1,0 +1,27 @@
+{
+  "name": "qrcode",
+  "version": "1.0.0",
+  "description": "App creates QR codes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goke-epapa/allaboutnodejs.git"
+  },
+  "keywords": [
+    "qr",
+    "code",
+    "node"
+  ],
+  "author": "Adegoke Obasa <adegokeobasa@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goke-epapa/allaboutnodejs/issues"
+  },
+  "homepage": "https://github.com/goke-epapa/allaboutnodejs#readme",
+  "dependencies": {
+    "qr-image": "^3.1.0"
+  }
+}
