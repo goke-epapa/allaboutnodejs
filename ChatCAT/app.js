@@ -10,10 +10,7 @@ app.engine('html', require('hogan-express'));
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Create Routes
-app.route('/').get(function(req, res, next){
-	res.render('index', {title : 'Welcome to ChatCAT'});	
-});
+require('./routes/route.js')(express, app);
 
 app.listen(port, function(){
 	console.log("ChatCAT working on " + port);
