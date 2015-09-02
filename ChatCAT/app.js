@@ -5,6 +5,7 @@ var express = require('express'),
 	session = require('express-session'),
 	config = require('./config/config.js'),
 	ConnectMongo = require('connect-mongo')(session),
+	mongoose = require('mongoose').connect(config.db_url),
 	cookieParser = require('cookie-parser');
 
 // mongodb://chatcat:chatcat@ds037283.mongolab.com:37283/goke_chatcat
@@ -31,13 +32,32 @@ if (env === "development") {
 	app.use(session({
 		secret: config.session_secret,
 		store: new ConnectMongo({
-			url: config.db_url,
+			mongoose_connection : mongoose.connections[0],
 			stringify : true
 		}),
 		saveUnintialized: true,
 		resave: true
 	}));
 }
+
+// Sample code to store data in database
+var userScehma = mongoose.Schema({
+	username : String,
+	password : String, 
+	fullname : String
+});
+
+var Person = mongoose.model('users', userScehma);
+
+var john = new Person({
+	username : 'john_doe',
+	password : 'john',
+	fullname : 'John Doe'
+});
+
+john.save(function(err){
+	console.log('Done!!!');
+});
 
 require('./routes/route.js')(express, app);
 
