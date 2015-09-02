@@ -1,10 +1,18 @@
 var express = require('express'),
+path = require('path'),
 app = express(),
 port = 3000;
 
+// Define view files
+app.set('views', path.join(__dirname, 'views'));
+// Define rendering engine
+app.engine('html', require('hogan-express'));
+app.set('view engine', 'html');
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Create Routes
 app.route('/').get(function(req, res, next){
-	res.send('<h1>Hello World</h1>');	
+	res.render('index', {});	
 });
 
 app.listen(port, function(){
