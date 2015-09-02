@@ -1,0 +1,4 @@
+{
+	"db_url" : "mongodb://chatcat:chatcat@ds037283.mongolab.com:37283/goke_chatcat",
+	"session_secret" : "LGJKNDKJNFKJNDKAJFNKAF"
+}
